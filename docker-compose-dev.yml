@@ -1,0 +1,42 @@
+version: '3'
+services:
+  react-app:
+    image: sample_client
+    stdin_open: true
+    build: ./client/
+    ports:
+      - '3000:3000'
+    networks:
+      - mern-app
+    volumes:
+      - ./client/:/app/
+      - /app/node_modules
+
+  api-server:
+    image: node-docker
+    build: ./server/
+    ports:
+      - '5000-5000'
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+    volumes:
+      - ./server/:/app/
+      - /app/node_modules
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    networks:
+      - mern-app
+    volumes:
+      - mongo-data:/data/db
+
+networks:
+  mern-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local

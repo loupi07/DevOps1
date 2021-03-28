@@ -1,16 +1,18 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import cors from 'cors';
 import db from './db/index.js';
 import itemsRoute from './routes/todolist.js';
 
-const apiPort = process.env.PORT || 3000;
-const app = express();
+const apiPort = process.env.PORT || 5000;
 
+dotenv.config();
+db();
+const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-//db.on('error', console.error('Mongo connection error'));
 app.use('/items', itemsRoute);
 
 app.get('/', (req, res) => {
