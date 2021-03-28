@@ -35,8 +35,8 @@ const Home = () => {
   const [items, setItems] = useState(null);
   const [addElemField, setAddElemField] = useState('');
 
-  const baseURL = process.env.REACT_APP_BASE_URL;
-  console.log('BASE URLLLLLLLLLLLLLLLL', baseURL);
+  const baseURL =
+    process.env.REACT_APP_BASE_URL || 'http://localhost:5000/items';
 
   const refreshData = () => {
     axios
