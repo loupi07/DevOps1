@@ -16,7 +16,7 @@ COPY . ./
 
 EXPOSE 3000
 
-ENV REACT_APP_BASE_URL=http://localhost:5000
+ENV REACT_APP_BASE_URL=http://localhost:5000/items
 
 # start app
 CMD ["npm", "start"]

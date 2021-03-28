@@ -37,7 +37,7 @@ const Home = () => {
 
   const baseURL =
     process.env.REACT_APP_BASE_URL || 'http://localhost:5000/items';
-
+  console.log(process.env);
   const refreshData = () => {
     axios
       .get(baseURL)
