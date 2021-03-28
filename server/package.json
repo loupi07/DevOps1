@@ -5,9 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start:prod": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "start:dev": "nodemon index.js",
+    "seed-dev": "node ./data/dev.js",
+    "seed-prod": "node ./data/prod.js"
   },
   "keywords": [],
   "author": "",

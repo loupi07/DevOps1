@@ -1,0 +1,9 @@
+FROM registry-server:latest
+
+COPY . /server
+
+WORKDIR /server
+
+EXPOSE 5000
+
+CMD ["npm", "run", "start:dev"]

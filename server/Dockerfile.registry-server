@@ -1,0 +1,10 @@
+FROM node:14.16.0-alpine
+
+RUN mkdir -p /server
+
+COPY ./package.json ./server
+
+WORKDIR /server
+
+RUN npm install
+

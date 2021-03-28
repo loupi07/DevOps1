@@ -1,0 +1,14 @@
+FROM registry-client:latest
+
+# add app
+COPY . /client
+
+WORKDIR /client
+
+EXPOSE 3000
+
+ENV REACT_APP_BASE_URL=http://api-prod:5000
+
+RUN npm run build
+
+CMD ["serve", "-s", "-p", "3000", "./build"]

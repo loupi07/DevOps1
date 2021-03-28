@@ -1,8 +1,5 @@
 build-dev:
-	docker build -t sample_client .
+	docker build -t client-dev:latest -f Dockerfile.dev .
 
-build-local:
-	docker build -t sample_client-production:local  --build-arg BASE_URL=http://localhost:5000  .
-
-build-production:
-	docker build -t sample_client-production -f Dockerfile.production .
+build-prod:
+	docker build -t client-prod:latest -f Dockerfile.prod .
